@@ -5,6 +5,7 @@ import com.apirest.moviedb.models.Genre;
 import com.apirest.moviedb.services.MiddleManMovieDBService;
 import com.apirest.moviedb.exceptions.MovieNotFoundException;
 import com.apirest.moviedb.exceptions.VideoNotFoundException;
+import com.apirest.moviedb.exceptions.ImageNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,6 +55,12 @@ public class MiddleManMovieDBController {
     @GftMapping("api/movie/{id}/videos")
     public void getVideosFromMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, VideoNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/videos?api_key=" + apiKey, Movie.class));
+        
+    }
+
+    @GftMapping("api/movie/{id}/images")
+    public void getImagesFromMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, ImageNotFoundException {
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/images?api_key=" + apiKey, Movie.class));
         
     }
 
