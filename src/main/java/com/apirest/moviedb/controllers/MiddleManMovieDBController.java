@@ -14,11 +14,16 @@ public class MiddleManMovieDBController {
 
     @Autowired
     MiddleManMovieDBService middleManMovieDBService;
-    @GetMapping("api/genre/movie/list")
-  
-    public void getAllGenre(){
 
-        middleManMovieDBService.findAllGenreMovieList();
+    @GetMapping("api/genre/movie/list")
+    public void getAllGenres(){
+
+        middleManMovieDBService.findAllGenres();
+    }
+
+    @GetMapping("api/movie/")
+    public void getAllMovies(){
+        middleManMovieDBService.findAllMovies();
     }
 
 }

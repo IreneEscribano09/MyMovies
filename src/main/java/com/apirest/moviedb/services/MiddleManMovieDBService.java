@@ -12,10 +12,12 @@ public class MiddleManMovieDBService {
     RestTemplate restTemplate = new RestTemplate();
     final String apiKey = "543ca318c86fad3e1432840d01cd4ecc";
 
-    public void findAllGenreMovieList(){
+    public void findAllMovies() {
+        System.out.println(restTemplate.getForObject(uri+"movie/list"+"?api_key="+apiKey, Genre.class));
+    }
 
+    public void findAllGenres(){
         System.out.println(restTemplate.getForObject(uri+"genre/movie/list"+"?api_key="+apiKey, Genre.class));
-
     }
 
 }
