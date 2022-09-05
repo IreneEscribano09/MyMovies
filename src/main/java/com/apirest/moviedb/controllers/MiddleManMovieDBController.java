@@ -34,19 +34,19 @@ public class MiddleManMovieDBController {
 
     @GftMapping("api/movie/{id}")
     public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "movie/" + id + "?api_key=" + apiKey, Movie.class));
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "?api_key=" + apiKey, Movie.class));
         
     }
 
     @GftMapping("api/movie/{id}/videos")
     public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, VideoNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "movie/" + id + "/videos?api_key=" + apiKey, Movie.class));
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/videos?api_key=" + apiKey, Movie.class));
         
     }
 
     @GftMapping("api/movie/{id}/translations")
     public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "movie/" + id + "/translations?api_key=" + apiKey, Movie.class));
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/translations?api_key=" + apiKey, Movie.class));
         
     }
 
