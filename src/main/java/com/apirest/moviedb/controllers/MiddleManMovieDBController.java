@@ -32,6 +32,16 @@ public class MiddleManMovieDBController {
         System.out.println(restTemplate.getForObject(api + "movie/latest?api_key=" + apiKey, Movie.class));
     }
 
+    @GftMapping("api/movie/upcoming")
+    public void getUpcomingMovies() throws IOException {
+        System.out.println(restTemplate.getForObject(api + "movie/upcoming?api_key=" + apiKey, Movie.class));
+    }
+
+    @GftMapping("api/movie/now_playing")
+    public void getNowPlayingMovies() throws IOException, MovieNotFoundException {
+        System.out.println(restTemplate.getForObject(api + "movie/now_playing?api_key=" + apiKey, Movie.class));
+    }
+
     @GftMapping("api/movie/{id}")
     public void getMovieById(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "?api_key=" + apiKey, Movie.class));
