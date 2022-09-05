@@ -2,7 +2,9 @@ package com.apirest.moviedb.controller;
 
 
 import com.apirest.moviedb.models.Genre;
-import com.apirest.moviedb.services.MiddleManMovieDBService;
+import com.apirest.moviedb.models.Movie;
+import com.apirest.moviedb.models.Network;
+
 import com.apirest.moviedb.exceptions.MovieNotFoundException;
 import com.apirest.moviedb.exceptions.VideoNotFoundException;
 import com.apirest.moviedb.exceptions.ImageNotFoundException;
@@ -79,6 +81,12 @@ public class MiddleManMovieDBController {
     @GetMapping("api/genre/movie/list")
     public void getAllGenres()  throws IOException {
         System.out.println(restTemplate.getForObject(api + "/genre/movie/list" + "?api_key=" + apiKey, Genre.class));
+    }
+
+    @GftMapping("api/network/{id}")
+    public void getNetworkById(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
+        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "?api_key=" + apiKey, Network.class));
+        
     }
 
 }
