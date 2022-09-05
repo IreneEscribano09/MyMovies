@@ -17,14 +17,14 @@ public class MiddleManMovieDBController {
     RestTemplate restTemplate = new RestTemplate();
     final String apiKey = "543ca318c86fad3e1432840d01cd4ecc";
 
-    @GetMapping("api/genre/movie/list")
-    public void getAllGenres(){
-        System.out.println(restTemplate.getForObject(uri+"movie/list"+"?api_key="+apiKey, Genre.class));
-    }
-
     @GetMapping("api/movie/")
     public void getAllMovies(){
-        System.out.println(restTemplate.getForObject(uri+"genre/movie/list"+"?api_key="+apiKey, Genre.class));
+        System.out.println(restTemplate.getForObject(uri+"movie/"+"?api_key="+apiKey, Movie.class));
+    }
+
+    @GetMapping("api/genre/movie/list")
+    public void getAllGenres(){
+        System.out.println(restTemplate.getForObject(uri+"/genre/movie/list"+"?api_key="+apiKey, Genre.class));
     }
 
 }
