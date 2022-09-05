@@ -13,29 +13,35 @@ import java.util.List;
 
 @RestController
 public class MiddleManMovieDBController {
-    final String uri = "https://api.themoviedb.org/3/";
+    final String api = "https://api.themoviedb.org/3/";
     RestTemplate restTemplate = new RestTemplate();
     final String apiKey = "543ca318c86fad3e1432840d01cd4ecc";
 
     @GetMapping("api/movie/popular")
     public void getPopularMovies() throws IOException {
-        System.out.println(restTemplate.getForObject(uri+"movie/popular"+"?api_key="+apiKey, Movie.class));
+        System.out.println(restTemplate.getForObject(api + "movie/popular?api_key=" + apiKey, Movie.class));
     }
 
     @GftMapping("api/movie/top_rated")
     public void getTopRatedMovies() throws IOException {
-        System.out.println(restTemplate.getForObject(uri+"movie/top_rated"+"?api_key="+apiKey, Movie.class));
+        System.out.println(restTemplate.getForObject(api + "movie/top_rated?api_key=" + apiKey, Movie.class));
     }
 
     @GftMapping("api/movie/{id}")
     public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(uri+"movie/"+id+"?api_key="+apiKey, Movie.class));
+        System.out.println(restTemplate.getForObject(api + "movie/" + id + "?api_key=" + apiKey, Movie.class));
+        
+    }
+
+    @GftMapping("api/movie/{id}/videos")
+    public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, VideoNotFoundException {
+        System.out.println(restTemplate.getForObject(api + "movie/" + id + "/videos?api_key=" + apiKey, Movie.class));
         
     }
 
     @GetMapping("api/genre/movie/list")
     public void getAllGenres()  throws IOException {
-        System.out.println(restTemplate.getForObject(uri+"/genre/movie/list"+"?api_key="+apiKey, Genre.class));
+        System.out.println(restTemplate.getForObject(api + "/genre/movie/list" + "?api_key=" + apiKey, Genre.class));
     }
 
 }
