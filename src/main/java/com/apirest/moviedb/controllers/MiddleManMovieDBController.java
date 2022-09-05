@@ -28,25 +28,31 @@ public class MiddleManMovieDBController {
     }
 
     @GftMapping("api/movie/latest")
-    public void getTopRatedMovies() throws IOException {
+    public void getLatestMovies() throws IOException {
         System.out.println(restTemplate.getForObject(api + "movie/latest?api_key=" + apiKey, Movie.class));
     }
 
     @GftMapping("api/movie/{id}")
-    public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
+    public void getMovieById(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "?api_key=" + apiKey, Movie.class));
         
     }
 
     @GftMapping("api/movie/{id}/videos")
-    public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, VideoNotFoundException {
+    public void getVideosFromMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, VideoNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/videos?api_key=" + apiKey, Movie.class));
         
     }
 
     @GftMapping("api/movie/{id}/translations")
-    public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
+    public void getTopTranslationsFromMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/translations?api_key=" + apiKey, Movie.class));
+        
+    }
+
+    @GftMapping("api/movie/{id}/similar")
+    public void getSimilarMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, VideoNotFoundException {
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/similar?api_key=" + apiKey, Movie.class));
         
     }
 
