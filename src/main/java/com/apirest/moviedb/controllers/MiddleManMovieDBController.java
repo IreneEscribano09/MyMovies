@@ -51,7 +51,7 @@ public class MiddleManMovieDBController {
     }
 
     @GftMapping("api/movie/{id}/similar")
-    public void getSimilarMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, VideoNotFoundException {
+    public void getSimilarMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/similar?api_key=" + apiKey, Movie.class));
         
     }
