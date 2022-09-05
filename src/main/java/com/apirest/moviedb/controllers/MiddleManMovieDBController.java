@@ -5,25 +5,26 @@ import com.apirest.moviedb.models.Genre;
 import com.apirest.moviedb.services.MiddleManMovieDBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @RestController
 public class MiddleManMovieDBController {
-
-    @Autowired
-    MiddleManMovieDBService middleManMovieDBService;
+    final String uri = "https://api.themoviedb.org/3/";
+    RestTemplate restTemplate = new RestTemplate();
+    final String apiKey = "543ca318c86fad3e1432840d01cd4ecc";
 
     @GetMapping("api/genre/movie/list")
     public void getAllGenres(){
-
-        middleManMovieDBService.findAllGenres();
+        System.out.println(restTemplate.getForObject(uri+"movie/list"+"?api_key="+apiKey, Genre.class));
     }
 
     @GetMapping("api/movie/")
     public void getAllMovies(){
-        middleManMovieDBService.findAllMovies();
+        System.out.println(restTemplate.getForObject(uri+"genre/movie/list"+"?api_key="+apiKey, Genre.class));
     }
 
 }
