@@ -3,6 +3,9 @@ package com.apirest.moviedb.controller;
 
 import com.apirest.moviedb.models.Genre;
 import com.apirest.moviedb.services.MiddleManMovieDBService;
+import com.apirest.moviedb.exceptions.MovieNotFoundException;
+import com.apirest.moviedb.exceptions.VideoNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Service;
