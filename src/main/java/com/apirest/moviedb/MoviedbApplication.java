@@ -1,13 +1,13 @@
-package com.sinensia.netflix;
+package com.apirest.moviedb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NetflixApplication {
+public class MoviedbApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NetflixApplication.class, args);
+		SpringApplication.run(MoviedbApplication.class, args);
 	}
 
 }

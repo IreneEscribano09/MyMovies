@@ -1,10 +1,10 @@
-package com.sinensia.netflix;
+package com.apirest.moviedb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NetflixApplicationTests {
+class MoviedbApplicationTests {
 
 	@Test
 	void contextLoads() {
