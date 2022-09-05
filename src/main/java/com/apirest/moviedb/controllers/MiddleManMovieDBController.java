@@ -17,13 +17,24 @@ public class MiddleManMovieDBController {
     RestTemplate restTemplate = new RestTemplate();
     final String apiKey = "543ca318c86fad3e1432840d01cd4ecc";
 
-    @GetMapping("api/movie/")
-    public void getAllMovies(){
-        System.out.println(restTemplate.getForObject(uri+"movie/"+"?api_key="+apiKey, Movie.class));
+    @GetMapping("api/movie/popular")
+    public void getPopularMovies() throws IOException {
+        System.out.println(restTemplate.getForObject(uri+"movie/popular"+"?api_key="+apiKey, Movie.class));
+    }
+
+    @GftMapping("api/movie/top_rated")
+    public void getTopRatedMovies() throws IOException {
+        System.out.println(restTemplate.getForObject(uri+"movie/top_rated"+"?api_key="+apiKey, Movie.class));
+    }
+
+    @GftMapping("api/movie/{id}")
+    public void getTopRatedMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
+        System.out.println(restTemplate.getForObject(uri+"movie/"+id+"?api_key="+apiKey, Movie.class));
+        
     }
 
     @GetMapping("api/genre/movie/list")
-    public void getAllGenres(){
+    public void getAllGenres()  throws IOException {
         System.out.println(restTemplate.getForObject(uri+"/genre/movie/list"+"?api_key="+apiKey, Genre.class));
     }
 
