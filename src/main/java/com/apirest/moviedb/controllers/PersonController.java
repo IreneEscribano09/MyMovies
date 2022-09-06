@@ -1,11 +1,12 @@
 package com.apirest.moviedb.controllers;
 
-
 import com.apirest.moviedb.models.Person;
+
 import com.apirest.moviedb.exceptions.ImageNotFoundException;
 import com.apirest.moviedb.exceptions.PersonNotFoundException;
 import com.apirest.moviedb.exceptions.VideoNotFoundException;
 
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,16 +30,19 @@ public class PersonController {
         System.out.println(restTemplate.getForObject(api + "person/popular?api_key=" + apiKey, Person.class));
     }
 
+    @ExceptionHandler(value = PersonNotFoundException.class)
     @GetMapping("api/person/{id}")
     public void getPeopleById(@PathVariable(value = "id") int id) throws IOException, PersonNotFoundException {
         System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "?api_key=" + apiKey, Person.class));   
     }
 
+    @ExceptionHandler(value = VideoNotFoundException.class)
     @GetMapping("api/person/{id}/videos")
     public void getVideosFromPeople(@PathVariable(value = "id") int id) throws IOException, PersonNotFoundException, VideoNotFoundException {
         System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/videos?api_key=" + apiKey, Person.class));    
     }
 
+    @ExceptionHandler(value = ImageNotFoundException.class)
     @GetMapping("api/person/{id}/images")
     public void getImagesFromPeople(@PathVariable(value = "id") int id) throws IOException, PersonNotFoundException, ImageNotFoundException {
         System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/images?api_key=" + apiKey, Person.class)); 

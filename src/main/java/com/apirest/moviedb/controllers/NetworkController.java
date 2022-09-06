@@ -1,9 +1,10 @@
 package com.apirest.moviedb.controllers;
 
-
 import com.apirest.moviedb.models.Network;
+
 import com.apirest.moviedb.exceptions.NetworkNotFoundException;
 
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ public class NetworkController {
     RestTemplate restTemplate = new RestTemplate();
     final String apiKey = "543ca318c86fad3e1432840d01cd4ecc";
 
+    @ExceptionHandler(value = NetworkNotFoundException.class)
     @GetMapping("api/network/{id}")
     public void getNetworkById(@PathVariable(value = "id") int id) throws IOException, NetworkNotFoundException {
         System.out.println(restTemplate.getForObject(api + "network/" + Integer.toString(id) + "?api_key=" + apiKey, Network.class)); 
