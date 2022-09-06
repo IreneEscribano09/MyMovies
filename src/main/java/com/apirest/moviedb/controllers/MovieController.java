@@ -77,14 +77,4 @@ public class MiddleManMovieDBController {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/similar?api_key=" + apiKey, Movie.class));
         
     }
-
-    @GetMapping("api/genre/movie/list")
-    public void getAllGenres()  throws IOException {
-        System.out.println(restTemplate.getForObject(api + "/genre/movie/list" + "?api_key=" + apiKey, Genre.class));
-    }
-
-    @GetMapping("api/genre/tv/list")
-    public void getAllGenres()  throws IOException {
-        System.out.println(restTemplate.getForObject(api + "/genre/tv/list" + "?api_key=" + apiKey, Genre.class));
-    }
 }
