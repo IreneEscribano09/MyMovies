@@ -1,4 +1,4 @@
-package com.apirest.moviedb.entity;
+package com.apirest.moviedb.models;
 
 
 import javax.persistence.*;
@@ -17,6 +17,7 @@ public class Movie {
     private String id;
     private String original_language;
     private String original_title;
+    private Long[] genre_ids;
     private String overview;
     private Integer popularity;
     private String release_date;

@@ -2,12 +2,8 @@ package com.apirest.moviedb.controller;
 
 
 import com.apirest.moviedb.models.Genre;
-import com.apirest.moviedb.models.Movie;
-import com.apirest.moviedb.models.Network;
 
-import com.apirest.moviedb.exceptions.MovieNotFoundException;
-import com.apirest.moviedb.exceptions.VideoNotFoundException;
-import com.apirest.moviedb.exceptions.ImageNotFoundException;
+import com.apirest.moviedb.exceptions.GenreNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

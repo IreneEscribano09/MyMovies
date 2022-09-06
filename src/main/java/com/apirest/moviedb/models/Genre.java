@@ -1,4 +1,4 @@
-package com.apirest.moviedb.entity;
+package com.apirest.moviedb.models;
 
 
 import javax.persistence.*;

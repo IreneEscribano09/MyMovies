@@ -1,9 +1,7 @@
 package com.apirest.moviedb.controller;
 
 
-import com.apirest.moviedb.models.Genre;
 import com.apirest.moviedb.models.Movie;
-import com.apirest.moviedb.models.Network;
 
 import com.apirest.moviedb.exceptions.MovieNotFoundException;
 import com.apirest.moviedb.exceptions.VideoNotFoundException;

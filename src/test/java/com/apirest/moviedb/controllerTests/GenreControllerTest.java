@@ -1,5 +1,6 @@
 package com.sinensia.netflix;
-import com.sinensia.netflix.exceptions.ActorNotFoundException;
+
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.springframework.beans.factory.annotation.Autowired;

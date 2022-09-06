@@ -1,4 +1,4 @@
-package com.sinensia.netflix;
+package com.apirest.moviedb;
 
 
 import org.junit.jupiter.api.Test;
@@ -18,24 +18,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class MovieControllerTest {
+public class PersonControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void testFindPopularMovies() throws Exception{
-        mockMvc.perform(get("/movie/popular")
+    void testFindPopularPeople() throws Exception{
+        mockMvc.perform(get("/person/popular")
                         .contentType(MediaType.APPLICATION_JSON));
     }
 
-    void testFindTopRatedMovies() throws Exception{
-        mockMvc.perform(get("/movie/top_rated")
+    void testFindLatestPeople() throws Exception{
+        mockMvc.perform(get("/person/latest")
                         .contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
     void testFindbyId() throws Exception{
-        mockMvc.perform(get("/movie/1")
+        mockMvc.perform(get("/person/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.[0].id",is(1280)))
