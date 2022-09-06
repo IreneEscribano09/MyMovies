@@ -26,7 +26,7 @@ public class NetworkController {
 
     @ExceptionHandler(value = ImageNotFoundException.class)
     @GetMapping("api/network/{id}/images")
-    public void getImagesFromNetwork(@PathVariable(value = "id") int id) throws IOException, NetworkNotFoundException {
+    public void getImagesFromNetwork(@PathVariable(value = "id") int id) throws IOException, NetworkNotFoundException, ImageNotFoundException {
         System.out.println(restTemplate.getForObject(api + "network/" + Integer.toString(id) + "/images?api_key=" + apiKey, Network.class));   
     }
 
