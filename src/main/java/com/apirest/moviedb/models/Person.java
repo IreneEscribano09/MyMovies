@@ -5,6 +5,8 @@ import javax.persistence.*;
 
 import lombok.*;
 
+import reactor.util.annotation.Nullable;
+
 @RequiredArgsConstructor
 @Getter
 @Setter
@@ -14,15 +16,17 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
-    private String id;
+    private Integer id;
     private String name;
-    private String[] also_known_as;
     private Integer gender;
     private String biography;
     private Integer popularity;
-    private String place_of_birth;
-    private String profile_path;
     private boolean adult;
     private String imdb_id;
-    private String homepage;
+    private String[] also_known_as;
+    @Nullable private String homepage;
+    @Nullable private String profile_path;
+    @Nullable private String place_of_birth;
+    @Nullable private String birthday;
+    @Nullable private String deathday;
 }

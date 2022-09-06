@@ -3,7 +3,10 @@ package com.apirest.moviedb.models;
 
 import javax.persistence.*;
 
+
 import lombok.*;
+
+import reactor.util.annotation.Nullable;
 
 @RequiredArgsConstructor
 @Getter
@@ -16,8 +19,8 @@ public class Network {
     
     private Integer id;
     private String name;
-    private String logo_path;
     private String origin_country;
     private String headquarters;
     private String homepage;
+    @Nullable private String logo_path;
 }
