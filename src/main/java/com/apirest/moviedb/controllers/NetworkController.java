@@ -25,20 +25,17 @@ public class MiddleManMovieDBController {
 
     @GftMapping("api/network/{id}")
     public void getNetworkById(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "?api_key=" + apiKey, Network.class));
-        
+        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "?api_key=" + apiKey, Network.class)); 
     }
 
     @GftMapping("api/network/{id}/images")
     public void getImagesFromNetwork(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "/images?api_key=" + apiKey, Network.class));
-        
+        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "/images?api_key=" + apiKey, Network.class));   
     }
 
     @GftMapping("api/network/{id}/alternative_names")
     public void getAlternativeNamesFromNetwork(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "/alternative_names?api_key=" + apiKey, Network.class));
-        
+        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "/alternative_names?api_key=" + apiKey, Network.class));  
     }
 
 }

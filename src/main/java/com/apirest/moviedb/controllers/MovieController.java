@@ -50,31 +50,26 @@ public class MiddleManMovieDBController {
 
     @GftMapping("api/movie/{id}")
     public void getMovieById(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "?api_key=" + apiKey, Movie.class));
-        
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "?api_key=" + apiKey, Movie.class));   
     }
 
     @GftMapping("api/movie/{id}/videos")
     public void getVideosFromMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, VideoNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/videos?api_key=" + apiKey, Movie.class));
-        
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/videos?api_key=" + apiKey, Movie.class));    
     }
 
     @GftMapping("api/movie/{id}/images")
     public void getImagesFromMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException, ImageNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/images?api_key=" + apiKey, Movie.class));
-        
+        System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/images?api_key=" + apiKey, Movie.class)); 
     }
 
     @GftMapping("api/movie/{id}/translations")
     public void getTopTranslationsFromMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/translations?api_key=" + apiKey, Movie.class));
-        
     }
 
     @GftMapping("api/movie/{id}/similar")
     public void getSimilarMovies(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
         System.out.println(restTemplate.getForObject(api + "movie/" + id.toString() + "/similar?api_key=" + apiKey, Movie.class));
-        
     }
 }
