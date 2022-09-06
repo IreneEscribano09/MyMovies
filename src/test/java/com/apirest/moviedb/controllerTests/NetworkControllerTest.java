@@ -22,14 +22,10 @@ public class GenreControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void testMovieGenres() throws Exception{
-        mockMvc.perform(get("genre/movie/")
-                        .contentType(MediaType.APPLICATION_JSON));
-    }
-
-    @Test
-    void testTVGenres() throws Exception{
-        mockMvc.perform(get("genre/tv/")
-                        .contentType(MediaType.APPLICATION_JSON));
+    void testFindbyId() throws Exception{
+        mockMvc.perform(get("/network/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.[0].id",is(1)));
     }
 }

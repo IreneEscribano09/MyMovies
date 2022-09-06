@@ -83,10 +83,8 @@ public class MiddleManMovieDBController {
         System.out.println(restTemplate.getForObject(api + "/genre/movie/list" + "?api_key=" + apiKey, Genre.class));
     }
 
-    @GftMapping("api/network/{id}")
-    public void getNetworkById(@PathVariable(value = "id") int id) throws IOException, MovieNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "network/" + id.toString() + "?api_key=" + apiKey, Network.class));
-        
+    @GetMapping("api/genre/tv/list")
+    public void getAllGenres()  throws IOException {
+        System.out.println(restTemplate.getForObject(api + "/genre/tv/list" + "?api_key=" + apiKey, Genre.class));
     }
-
 }
