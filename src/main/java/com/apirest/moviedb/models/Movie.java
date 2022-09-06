@@ -11,6 +11,7 @@ import reactor.util.annotation.Nullable;
 @Getter
 @Setter
 @ToString
+@Table(name="movie")
 @Entity
 public class Movie {
     @Id
