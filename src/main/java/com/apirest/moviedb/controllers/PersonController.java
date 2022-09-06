@@ -39,18 +39,18 @@ public class PersonController {
     @ExceptionHandler(value = VideoNotFoundException.class)
     @GetMapping("api/person/{id}/videos")
     public void getVideosFromPeople(@PathVariable(value = "id") int id) throws IOException, PersonNotFoundException, VideoNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/videos?api_key=" + apiKey, Person.class));    
+        System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/videos?api_key=" + apiKey, Person.class));
     }
 
     @ExceptionHandler(value = ImageNotFoundException.class)
     @GetMapping("api/person/{id}/images")
     public void getImagesFromPeople(@PathVariable(value = "id") int id) throws IOException, PersonNotFoundException, ImageNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/images?api_key=" + apiKey, Person.class)); 
+        System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/images?api_key=" + apiKey, Person.class));
     }
 
     @GetMapping("api/person/{id}/changes")
     public void getChangesFromPeople(@PathVariable(value = "id") int id) throws IOException, PersonNotFoundException {
-        System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/changes?api_key=" + apiKey, Person.class));   
+        System.out.println(restTemplate.getForObject(api + "person/" + Integer.toString(id) + "/changes?api_key=" + apiKey, Person.class));
     }
 
     @GetMapping("api/person/{id}/movie_credits")
