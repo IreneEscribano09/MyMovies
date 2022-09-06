@@ -1,7 +1,7 @@
 package com.apirest.moviedb.controllers;
 
 import com.apirest.moviedb.models.Network;
-
+import com.apirest.moviedb.exceptions.ImageNotFoundException;
 import com.apirest.moviedb.exceptions.NetworkNotFoundException;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,6 +24,7 @@ public class NetworkController {
         System.out.println(restTemplate.getForObject(api + "network/" + Integer.toString(id) + "?api_key=" + apiKey, Network.class)); 
     }
 
+    @ExceptionHandler(value = ImageNotFoundException.class)
     @GetMapping("api/network/{id}/images")
     public void getImagesFromNetwork(@PathVariable(value = "id") int id) throws IOException, NetworkNotFoundException {
         System.out.println(restTemplate.getForObject(api + "network/" + Integer.toString(id) + "/images?api_key=" + apiKey, Network.class));   
