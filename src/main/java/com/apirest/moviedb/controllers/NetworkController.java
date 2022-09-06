@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-public class MiddleManMovieDBController {
+public class NetworkController {
     final String api = "https://api.themoviedb.org/3/";
     RestTemplate restTemplate = new RestTemplate();
     final String apiKey = "543ca318c86fad3e1432840d01cd4ecc";
