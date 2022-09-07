@@ -12,6 +12,7 @@ import reactor.util.annotation.Nullable;
 @Getter
 @Setter
 @ToString
+@Table(name="network")
 @Entity
 public class Network {
     @Id

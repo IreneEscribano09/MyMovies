@@ -11,6 +11,7 @@ import reactor.util.annotation.Nullable;
 @Getter
 @Setter
 @ToString
+@Table(name="person")
 @Entity
 public class Person {
     @Id
@@ -23,7 +24,7 @@ public class Person {
     private Integer popularity;
     private boolean adult;
     private String imdb_id;
-    private String[] also_known_as;
+    @Nullable private String[] also_known_as;
     @Nullable private String homepage;
     @Nullable private String profile_path;
     @Nullable private String place_of_birth;
